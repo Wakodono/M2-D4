@@ -14,41 +14,102 @@
     - [EXTRA] Create a button to reset the state of the app.
 -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
 
     <title>STRIVE TEAM GENERATOR!</title>
   </head>
   <body>
-      <!-- - The user should be able to add a list of names, find a way to get the user input and fill a list with the new name. -->
-    <div class="container-fluid">
-          <h1>WELCOME TO OUR STRIVE TEAM GENERATOR</h1>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter a student's name" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add to list</button>
-            </div>
-          </div>
-
-    <form action="">
+    <div class="container text-center mb-5">
+      <h1>WELCOME TO OUR STRIVE TEAM GENERATOR</h1>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+    <div class="container mb-3">
+      <div class="input-group">
+        <input id="input-name" onsubmit="addPerson(event)"
+          type="text"
+          class="form-control"
+          placeholder="Student's name"
+          aria-label="Student's name"
+          aria-describedby="button-addon2"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="button-addon2">
+            Add Student to list
+          </button>
+        </div>
+      </div>
     </div>
-    </form>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <div class="container mb-3">
+      <div class="row">
+        <div class="col-sm-6 mb-5">
+          Number of teams
+          <button type="button" class="btn btn-primary mx-2">-</button>
+          <span>2</span>
+          <button type="button" class="btn btn-primary mx-2">+</button>
+        </div>
+        <div class="col-12">
+          <h5>Class List</h5>
+          <ul id="list-queue" class="list-group">
 
-    
+          </ul>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <button type="button" class="btn btn-primary my-3 mx-5" onclick="assign()">Assign</button>
+          <button type="button" class="btn btn-danger my-3" onclick="assign()">Reset</button>
+        </div>
+      </div>
+
+      <div class="col-12 my-5">
+        <div id="teams-row" class="row">
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const studentName = document.querySelector("input-name")
+      const queue = documment.querySelector("#list-queue")
+
+      function addPerson(event) {
+        event.preventDefault()
+
+        const li = document.createElement("li")
+        li.classList.add("list-group-item")
+        li.classList.add("d-flex")
+        li.classList.add("align-items-center")
+        li.innerHTML = studentName.value
+        ul.appendChild(li)
+      }
+
+
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
